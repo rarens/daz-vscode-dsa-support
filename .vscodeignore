@@ -1,0 +1,7 @@
+.git/**
+.github/**
+.vscode/**
+scripts/**
+dsa-tsserver-plugin/**
+dsa-support-*.vsix
+package-lock.json

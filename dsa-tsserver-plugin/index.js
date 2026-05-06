@@ -41,7 +41,7 @@ function init(modules) {
 				return externalFiles;
 			}
 
-			const files = host.readDirectory(root, ['.dsa', '.dse', '.ds'], undefined, undefined, 99) || [];
+			const files = host.readDirectory(root, ['.dsa'], undefined, undefined, 99) || [];
 			log(project, 'discovered ' + files.length + ' DAZ Script files under ' + root);
 
 			if (externalFiles.length > 0) {
@@ -64,9 +64,7 @@ function init(modules) {
 		create,
 		getExternalFiles,
 		extraFileExtensions: [
-			{ extension: '.dsa', isMixedContent: false, scriptKind: ts.ScriptKind.JS },
-			{ extension: '.dse', isMixedContent: false, scriptKind: ts.ScriptKind.JS },
-			{ extension: '.ds', isMixedContent: false, scriptKind: ts.ScriptKind.JS }
+			{ extension: '.dsa', isMixedContent: false, scriptKind: ts.ScriptKind.JS }
 		]
 	};
 }

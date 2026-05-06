@@ -2,7 +2,7 @@
   "name": "dsa-support",
   "displayName": "DAZ Script Support",
   "description": "VS Code support for DAZ Script files with TypeScript-powered JavaScript IntelliSense.",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "publisher": "rarens",
   "private": false,
   "license": "MIT",
@@ -14,14 +14,16 @@
     "url": "https://github.com/rarens/daz-vscode-dsa-support/issues"
   },
   "homepage": "https://github.com/rarens/daz-vscode-dsa-support#readme",
+  "bundleDependencies": [
+    "@mydaz/dsa-tsserver-plugin"
+  ],
   "scripts": {
     "sync-types": "node ./scripts/sync-bundled-types.js",
     "postinstall": "npm run sync-types",
-    "prepare-plugin-package": "node ./scripts/prepare-plugin-package.js",
-    "vscode:prepublish": "npm run sync-types && npm run prepare-plugin-package"
+    "vscode:prepublish": "npm run sync-types"
   },
   "dependencies": {
-    "@mydaz/dsa-tsserver-plugin": "file:./dsa-tsserver-plugin"
+    "@mydaz/dsa-tsserver-plugin": "file:./dsa-tsserver-plugin/mydaz-dsa-tsserver-plugin-0.0.2.tgz"
   },
   "engines": {
     "vscode": "^1.100.0"
