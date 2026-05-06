@@ -17,6 +17,27 @@ This extension adds:
 4. Run `DAZ Script: Restart TypeScript Server`.
 5. Reopen your `.dsa` file if needed.
 
+## Build VSIX
+
+From the extension folder, run:
+
+```powershell
+npm install
+npx --yes @vscode/vsce package --no-dependencies
+```
+
+This creates a file like `dsa-support-0.0.1.vsix` in the project root.
+
+## Install VSIX
+
+To install the packaged extension in VS Code, run:
+
+```powershell
+code --install-extension .\dsa-support-0.0.1.vsix
+```
+
+You can also install it from the Extensions view with `...` -> `Install from VSIX...`.
+
 ## Recommended jsconfig.json
 
 If your workspace does not already have a `jsconfig.json`, the extension can create one for you.
