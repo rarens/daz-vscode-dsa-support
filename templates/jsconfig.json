@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "checkJs": true,
+    "target": "es5",
+    "module": "none",
+    "lib": ["ES5"],
+    "skipLibCheck": true,
+    "strict": false,
+    "allowArbitraryExtensions": true
+  },
+  "include": [
+    "./*.js",
+    "./*.dsa",
+    "./**/*.js",
+    "./**/*.dsa",
+    "./types/**/*.d.ts"
+  ],
+  "exclude": [
+    "./Docs/**/*.*",
+    "./ResourceDump/**/*.*",
+    "./node_modules/**/"
+  ]
+}

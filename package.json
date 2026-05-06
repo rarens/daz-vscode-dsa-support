@@ -1,0 +1,70 @@
+{
+  "name": "dsa-support",
+  "displayName": "DAZ Script Support",
+  "description": "VS Code support for DAZ Script files with TypeScript-powered JavaScript IntelliSense.",
+  "version": "0.0.1",
+  "publisher": "rarens",
+  "private": false,
+  "license": "MIT",
+  "scripts": {
+    "sync-types": "node ./scripts/sync-bundled-types.js",
+    "postinstall": "npm run sync-types",
+    "vscode:prepublish": "npm run sync-types"
+  },
+  "dependencies": {
+    "@mydaz/dsa-tsserver-plugin": "file:./dsa-tsserver-plugin"
+  },
+  "engines": {
+    "vscode": "^1.100.0"
+  },
+  "categories": [
+    "Programming Languages"
+  ],
+  "extensionKind": [
+    "workspace"
+  ],
+  "main": "./src/extension.js",
+  "contributes": {
+    "languages": [
+      {
+        "id": "dsa",
+        "aliases": [
+          "DAZ Script",
+          "dsa"
+        ],
+        "extensions": [
+          ".dsa",
+          ".dse",
+          ".ds"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "dsa",
+        "scopeName": "source.dsa",
+        "path": "./syntaxes/dsa.tmLanguage.json"
+      }
+    ],
+    "commands": [
+      {
+        "command": "dsaSupport.addWorkspaceJsConfig",
+        "title": "DAZ Script: Add DAZ jsconfig.json to Workspace"
+      },
+      {
+        "command": "dsaSupport.restartTypeScriptServer",
+        "title": "DAZ Script: Restart TypeScript Server"
+      }
+    ],
+    "typescriptServerPlugins": [
+      {
+        "name": "@mydaz/dsa-tsserver-plugin",
+        "enableForWorkspaceTypeScriptVersions": true,
+        "languages": [
+          "dsa"
+        ]
+      }
+    ]
+  }
+}
