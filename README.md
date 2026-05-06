@@ -4,7 +4,7 @@ VS Code support for DAZ Script files.
 
 This extension adds:
 
-- file associations for `.dsa`, `.dse`, and `.ds`
+- file association for `.dsa`
 - syntax highlighting for DAZ Script files
 - TypeScript-powered IntelliSense for bundled DAZ Studio type definitions
 - a command to create a recommended `jsconfig.json` in your workspace

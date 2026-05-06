@@ -6,10 +6,19 @@
   "publisher": "rarens",
   "private": false,
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/rarens/daz-vscode-dsa-support.git"
+  },
+  "bugs": {
+    "url": "https://github.com/rarens/daz-vscode-dsa-support/issues"
+  },
+  "homepage": "https://github.com/rarens/daz-vscode-dsa-support#readme",
   "scripts": {
     "sync-types": "node ./scripts/sync-bundled-types.js",
     "postinstall": "npm run sync-types",
-    "vscode:prepublish": "npm run sync-types"
+    "prepare-plugin-package": "node ./scripts/prepare-plugin-package.js",
+    "vscode:prepublish": "npm run sync-types && npm run prepare-plugin-package"
   },
   "dependencies": {
     "@mydaz/dsa-tsserver-plugin": "file:./dsa-tsserver-plugin"
@@ -33,9 +42,7 @@
           "dsa"
         ],
         "extensions": [
-          ".dsa",
-          ".dse",
-          ".ds"
+          ".dsa"
         ],
         "configuration": "./language-configuration.json"
       }
